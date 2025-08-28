@@ -1,12 +1,252 @@
 \documentclass{article}
 \usepackage{graphicx} % Required for inserting images
+\usepackage[a4paper, margin=0.5in]{geometry}
+\usepackage{amsmath}
 
 \title{Moments and Singular Perturbation}
 \author{Yoonjae Hwang}
 \begin{document}
 
 \maketitle
+\section{Problem Setup}
 
-\section{Introduction}
+\textbf{SYSTEM: } 
+\begin{equation}
+    \dot{x} = A_{11} x + A_{12} z + B_1 u
+\end{equation}
+
+\begin{equation}
+    \varepsilon \dot{z} = A_{21} x + A_{22} z + B_2 u
+\end{equation}
+
+\begin{equation}
+    y = C_1 x
+\end{equation}
+
+No $z$ term as otherwise we would have feedforward in the reduced model. 
+
+In state space form:
+\begin{equation}
+\begin{bmatrix}
+\dot{x} \\
+\dot{z}
+\end{bmatrix}
+=
+\begin{bmatrix}
+A_{11} & A_{12} \\
+\dfrac{1}{\varepsilon} A_{21} & \dfrac{1}{\varepsilon} A_{22}
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+z
+\end{bmatrix}
++
+\begin{bmatrix}
+B_{1} \\
+\dfrac{1}{\varepsilon} B_{2}
+\end{bmatrix} u
+\label{eq:compact_system}
+\end{equation}
+
+\textbf{SIGNAL:}
+
+\begin{equation}
+    \dot{w}_1 = S_{11} w_1 + S_{12} w_2
+\end{equation}
+
+\begin{equation}
+    \varepsilon \dot{w}_2 = S_{21} w_1 + S_{22} w_2
+\end{equation}
+
+
+\textbf{REDUCED MODEL SIGNAL:} 
+
+\begin{equation}
+S_{22} w_2 + S_{21} w_1 = 0
+\end{equation}
+
+\begin{equation}
+w_2 = -S_{22} ^{-1} S_{21} w_1
+\end{equation}
+
+\begin{equation}
+\dot{w_1} = (S_{11}-S_{12} S_{22} ^{-1} S_{21}) w_1
+\end{equation}
+
+\begin{equation}
+u = (L_{g1} - L_{g2} S_{22} ^ {-1} S_{21}) w_1
+\end{equation} 
+
+\textbf{REDUCED MODEL OF THE SYSTEM:}
+
+\begin{equation}
+A_{22} z + A_{21} x + B_2 u = 0
+\end{equation}
+
+\begin{equation}
+z = -A_{22} ^{-1} \left( A_{21} x + B_2 u \right)
+\end{equation}
+
+\begin{equation}
+\dot{x} = (A_{11}-A_{12} A_{22} ^{-1} A_{21}) x + (B_1 - A_{12} A_{22}^{-1} B_2) (L_{g1} - L_{g2} S_{22} ^ {-1} S_{21}) w_1
+\end{equation}
+
+
+\textbf{FORWARD SYLVESTER EQUATION FOR THE FULL SYSTEM:}
+\begin{equation}
+\left[
+\begin{array}{cc}
+A_{11} & A_{12} \\
+\dfrac{1}{\varepsilon} A_{21} & \dfrac{1}{\varepsilon} A_{22}
+\end{array}
+\right]
+\left[
+\begin{array}{cc}
+\Pi_{x1} & \Pi_{x2} \\
+\Pi_{z1} & \Pi_{z2}
+\end{array}
+\right]
++
+\left[
+\begin{array}{cc}
+B_{1} L_{g1} & B_{1} L_{g2} \\
+\dfrac{1}{\varepsilon} B_{2} L_{g1} & \dfrac{1}{\varepsilon} B_{2} L_{g2}
+\end{array}
+\right]
+=
+\left[
+\begin{array}{cc}
+\Pi_{x1} & \Pi_{x2} \\
+\Pi_{z1} & \Pi_{z2}
+\end{array}
+\right]
+\left[
+\begin{array}{cc}
+S_{11} & S_{12} \\
+\dfrac{1}{\varepsilon} S_{21} & \dfrac{1}{\varepsilon} S_{22}
+\end{array}
+\right]
+\end{equation}
+
+\textbf{FORWARD SYLVESTER EQUATION FOR THE REDUCED MODEL}
+\begin{equation}
+    (A_{11}-A_{12} A_{22} ^{-1} A_{21}) \tilde{\Pi} + (B_1 - A_{12} A_{22}^{-1} B_2) (L_{g1} - L_{g2} S_{22} ^ {-1} S_{21}) 
+    = \tilde{\Pi} (S_{11}-S_{12} S_{22} ^{-1} S_{21})
+\end{equation}
+
+
+Can we show that as $\varepsilon \to 0$, the forward syvlester equation for the full system tends 
+towards the forward sylvester equation for the reduced model?
+
+\section{Proof (I guess?)}
+Expanding out (14) we have: 
+\begin{subequations}\label{eq:block-expansion}
+\begin{align}
+A_{11}\Pi_{x1}+A_{12}\Pi_{z1}+B_1L_{g1}
+  &= \Pi_{x1}S_{11}+\frac{1}{\varepsilon}\Pi_{x2}S_{21}, \\
+A_{11}\Pi_{x2}+A_{12}\Pi_{z2}+B_1L_{g2}
+  &= \Pi_{x1}S_{12}+\frac{1}{\varepsilon}\Pi_{x2}S_{22}, \\
+\frac{1}{\varepsilon}\!\left(A_{21}\Pi_{x1}+A_{22}\Pi_{z1}\right)+\frac{1}{\varepsilon}B_2L_{g1}
+  &= \Pi_{z1}S_{11}+\frac{1}{\varepsilon}\Pi_{z2}S_{21}, \\
+\frac{1}{\varepsilon}\!\left(A_{21}\Pi_{x2}+A_{22}\Pi_{z2}\right)+\frac{1}{\varepsilon}B_2L_{g2}
+  &= \Pi_{z1}S_{12}+\frac{1}{\varepsilon}\Pi_{z2}S_{22}.
+\end{align}
+\end{subequations}
+
+Multiplying (16c) and (16d) by $\varepsilon$ we have: 
+\begin{subequations}
+\begin{align}
+A_{11}\Pi_{x1}+A_{12}\Pi_{z1}+B_1L_{g1}
+  &= \Pi_{x1}S_{11}+\frac{1}{\varepsilon}\Pi_{x2}S_{21}, \\
+A_{11}\Pi_{x2}+A_{12}\Pi_{z2}+B_1L_{g2}
+  &= \Pi_{x1}S_{12}+\frac{1}{\varepsilon}\Pi_{x2}S_{22}, \\
+A_{21}\Pi_{x1}+A_{22}\Pi_{z1} + B_2L_{g1}
+  &= \varepsilon \Pi_{z1}S_{11} + \Pi_{z2}S_{21}, \\
+A_{21}\Pi_{x2}+A_{22}\Pi_{z2} + B_2L_{g2}
+  &= \varepsilon \Pi_{z1}S_{12} + \Pi_{z2}S_{22}.
+\end{align}
+\end{subequations}
+
+We now consider the $\varepsilon$ series expansion of $\Pi_{x1}$, $\Pi_{x2}$, $\Pi_{z1}$, $\Pi_{z2}$.
+We can see that by multiplying (17a) and (17b) by $\varepsilon$, and setting  $\varepsilon$ to 0 we have that the zeroth order term
+for $\Pi_{x2}$ is 0.  
+
+We then write: 
+
+\begin{subequations}
+\begin{align}
+A_{11}\Pi_{x1}^{(0)}+A_{12}\Pi_{z1}^{(0)}+B_1L_{g1}
+  &= \Pi_{x1}^{(0)} S_{11} + \Pi_{x2} ^ {(1)} S_{21} + O(\varepsilon), \\
+A_{12}\Pi_{z2} ^ {(0)} + B_1 L_{g2}
+  &= \Pi_{x1}^{(0)} S_{12} + \Pi_{x2}^{(1)} S_{22} + O(\varepsilon), \\
+A_{21}\Pi_{x1}^{(0)} + A_{22}\Pi_{z1}^{(0)} + B_2 L_{g1}
+  &= \Pi_{z2} ^ {(0)} S_{21} + O(\varepsilon), 
+\\
+A_{22}\Pi_{z2}^{(0)} + B_2L_{g2}
+  &= \Pi_{z2} ^ {(0)}S_{22} + O(\varepsilon)
+\end{align}
+\end{subequations}
+
+Each of the 4 equations in (18) are essentially polynomials in epsilon. \\
+After equating coefficients, we can write $\Pi_{x2} ^ {(1)}$ as such (Assuming $S_{22}$ is invertible):
+
+\begin{equation}
+\Pi_{x2} ^ {(1)} = \left(  A_{12} \Pi_{z2}^{(0)} + B_1 L_{g2} - \Pi_{x1} ^ {(0)} S_{12} \right) S_{22} ^{-1}
+\end{equation}
+
+Substituting (19) into (18a) we have: 
+\begin{equation}
+    A_{11}\Pi_{x1}^{(0)}+A_{12}\Pi_{z1}^{(0)}+B_1L_{g1} = \Pi_{x1}^{(0)} S_{11} + \left(  A_{12} \Pi_{z2}^{(1)} + B_1 L_{g2} - \Pi_{x1} ^ {(0)} S_{12} \right) S_{22} ^{-1} S_{21} + O(\varepsilon)
+\end{equation}
+
+Rearranging we have: 
+\begin{equation}
+    A_{11}\Pi_{x1}^{(0)}+A_{12}\Pi_{z1}^{(0)}+B_1L_{g1} = \Pi_{x1}^{(0)} \left( S_{11} - S_{12} S_{22} ^{-1} S_{21} \right) 
+    + \left(  A_{12} \Pi_{z2}^{(0)} + B_1 L_{g2} \right) S_{22} ^{-1} S_{21} + O(\varepsilon)
+\end{equation}
+
+Similarly, from (18c) we can substitute in an expression for $\Pi_{z1} ^ {(0)}$:
+\begin{equation}
+    A_{11}\Pi_{x1}^{(0)}+ A_{12} A_{22}^{-1} \left(\Pi_{z2}^{(0)} S_{21} - A_{21} \Pi_{x1}^{(0)} - B_2 L_{g1} \right) +B_1L_{g1} = \Pi_{x1}^{(0)} \left( S_{11} - S_{12} S_{22} ^{-1} S_{21} \right) 
+    + \left(  A_{12} \Pi_{z2}^{(0)} + B_1 L_{g2} \right) S_{22} ^{-1} S_{21} + O(\varepsilon)
+\end{equation}
+
+Rearranging we have: 
+\begin{align}
+& \left( A_{11} - A_{12} A_{22}^{-1} A_{21} \right) \Pi_{x1}^{(0)}
++ \left( B_1 - A_{12} A_{22}^{-1} B_2 \right)L_{g1} \notag\\
+& \quad + \left( A_{12} A_{22}^{-1} \Pi_{z2}^{(0)} - \left( A_{12} \Pi_{z2}^{(0)} + B_1 L_{g2} \right) S_{22} ^{-1} \right) S_{21} \notag\\
+&= \Pi_{x1}^{(0)} \left( S_{11} - S_{12} S_{22} ^{-1} S_{21} \right) + O(\varepsilon)
+\end{align}
+
+Simplifying the middle (...) $S_{21}$ term using (18d):
+\begin{align}
+    & \left( A_{12} A_{22} ^ {-1} \Pi_{z2} ^ {(0)} - A_{12} \Pi_{z2} ^{(0)} S_{22}^{-1}  - B_1 L_{g2} S_{22}^{-1} \right) S_{21} \\
+    &= \left( A_{12} A_{22} ^ {-1} \left( \Pi_{z2}^{(0)} S_{22} - A_{22} \Pi_{z2} ^ {(0)} \right) S_{22} - B_1 L_{g2} S_{22}^{-1} \right) S_{21} \\
+    &= \left( A_{12} A_{22}^{-1} B_2 L_{g2} S_{22}^{-1} - B_1 L_{g2} S_{22}^{-1} \right) S_{21} \\
+    &= - \left( B_1 - A_{12} A_{22}^{-1} B_2 \right) L_{g2} S_{22}^{-1} S_{21}
+\end{align}
+
+Substituting (27) back into (23) and factorising we have: 
+\begin{align}
+    &\left( A_{11} - A_{12} A_{22}^{-1} A_{21} \right) \Pi_{x1}^{(0)} + (B_1 - A_{12} A_{22}^{-1} B_2) (L_{g1} - L_{g2} S_{22} ^ {-1} S_{21}) \\
+    &= \Pi_{x1}^{(0)} \left( S_{11} - S_{12} S_{22} ^{-1} S_{21} \right) + O(\varepsilon)
+\end{align}
+
+which is of $O(\varepsilon)$ error from (15). 
+Thus as $\varepsilon \to 0$, (29) approaches (15), and the value $\Pi_{x1}  \to \Pi_{x1}^{(0)} = \tilde{\Pi}$.
+
+\section{Next Steps}
+\begin{itemize}
+    \item Expression for $Pi_{x2}$ (Is it needed?)
+    \item Higher order epsilon expansion?
+    \item Assumptions, and rigour?
+\end{itemize}
+
+
+
+
+
+
 
 \end{document}
