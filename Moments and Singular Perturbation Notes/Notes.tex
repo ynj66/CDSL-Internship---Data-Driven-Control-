@@ -91,6 +91,13 @@ z = -A_{22} ^{-1} \left( A_{21} x + B_2 u \right)
 \dot{x} = (A_{11}-A_{12} A_{22} ^{-1} A_{21}) x + (B_1 - A_{12} A_{22}^{-1} B_2) (L_{g1} - L_{g2} S_{22} ^ {-1} S_{21}) w_1
 \end{equation}
 
+\textbf{FORWARD MOMENTS}
+\begin{equation}
+M_g :=
+\begin{bmatrix}
+    C_1 \Pi_{x1} & C_1 \Pi_{x2}
+\end{bmatrix}
+\end{equation}
 
 \textbf{FORWARD SYLVESTER EQUATION FOR THE FULL SYSTEM:}
 \begin{equation}
@@ -234,7 +241,7 @@ Substituting (27) back into (23) and factorising we have:
 \end{align}
 
 which is of $O(\varepsilon)$ error from (15). 
-Thus as $\varepsilon \to 0$, (29) approaches (15), and the value $\Pi_{x1}  \to \Pi_{x1}^{(0)} = \tilde{\Pi}$.
+Thus as $\varepsilon \to 0$, (29) approaches (15), and the matrix $\Pi_{x1}  \to \Pi_{x1}^{(0)} = \tilde{\Pi}$.
 
 \section{Next Steps}
 \begin{itemize}
