@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1756388492.50726 "c:/CDSL Internship/CDSL-Internship---Data-Driven-Control-/Moments and Singular Perturbation Notes/Notes.tex" "Notes.pdf" "Notes" 1756388493.05481 0
-  "C:/Users/yoonj/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1756358868 81088 29d6fa367ac022d1b69251d68c0742e6 ""
-  "C:/Users/yoonj/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1756364105 11548 7a1a4ef9f74ecb06877b4dbbd7fca1bd ""
+["pdflatex"] 1756959446.18462 "c:/CDSL Internship/CDSL-Internship---Data-Driven-Control-/Moments and Singular Perturbation Notes/Notes.tex" "Notes.pdf" "Notes" 1756959446.71896 0
+  "C:/Users/yoonj/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1756792540 278194 14217b9c74496d1250e88da84646256e ""
   "C:/Users/yoonj/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1741959641 24225046 6a90b425369e72b861d8825d3942ddf8 ""
+  "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1001775420 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm1000.tfm" 993062508 1436 c7f957a372ef2fbe93c0982f96625e12 ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -23,6 +23,7 @@
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1247596666 32080 340ef9bf63678554ee606688e7b5339d ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1247596667 30251 6afa5cb1d0204815a708a080681d4674 ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247596667 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1247596667 36741 0ee9e374ec3e30da87cdfb0ea3575226 ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1247596667 36281 c355509802a035cadc5f15869451dcee ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1247596667 32722 d7379af29a190c3f453aba36302ff5a9 ""
@@ -30,6 +31,7 @@
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1247596667 32762 7fee39e011c23b3589931effd97b9702 ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
+  "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1000.pfb" 1215618300 138258 6525c253f16cededa14c7fd0da7f67b2 ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/tex/generic/iftex/iftex.sty" 1643997108 7237 bdd120a32c8fdb4b433cf9ca2e7cd98a ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/tex/generic/iftex/ifvtex.sty" 1643997108 1057 525c2192b5febbd8c1f662c9468335bb ""
@@ -58,9 +60,9 @@
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/tex/latex/kvoptions/kvoptions.sty" 1656236481 22555 6d8e155cfef6d82c3d5c742fea7c992e ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/tex/latex/kvsetkeys/kvsetkeys.sty" 1665066333 13815 760b0c02f691ea230f5359c4e1de23a7 ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1704400941 30006 57b07afb710ee2f649c65cfbafda39c1 ""
-  "Notes.aux" 1756388492 423 e466a942498a060ae8f951b07da741bd "pdflatex"
-  "Notes.tex" 1756388491 8086 cb5e08631916f8cc2c08ebc16b437d77 ""
-  "c:/CDSL Internship/CDSL-Internship---Data-Driven-Control-/Moments and Singular Perturbation Notes/Notes.tex" 1756388491 8086 cb5e08631916f8cc2c08ebc16b437d77 ""
+  "Notes.aux" 1756959446 538 a92629150d139c88acf2669c3fe7f159 "pdflatex"
+  "Notes.tex" 1756959445 8620 54491284075f3ccc4921492a3fdc7891 ""
+  "c:/CDSL Internship/CDSL-Internship---Data-Driven-Control-/Moments and Singular Perturbation Notes/Notes.tex" 1756959445 8620 54491284075f3ccc4921492a3fdc7891 ""
   (generated)
   "Notes.aux"
   "Notes.log"
