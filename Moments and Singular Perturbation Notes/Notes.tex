@@ -309,8 +309,8 @@ Might be implementation issue.
 \item Is there a limit for the difference? $ \Pi w_g - x$
 \end{itemize}
 
-\section{Singular Systems}
-One thing to note that you could represent singular perturbation systems as a singular system. 
+\section{Descriptor Systems}
+One thing to note that you could represent singular perturbation systems as a descriptor system. 
 Scarlotti wrote a paper on singular systems and moment matching, but something different is that for us, 
 our signal is also a singular perturbation system. 
 Another thing to note, when you consider the scenario where $S_{11}$ and $S_{22}$ are 0, the signal is a pure integrator,
@@ -329,9 +329,11 @@ Even for unstable systems, we can still compute a solution for the Sylvester equ
 
 This way a nonlinear extension should be more straightforward, as $\Pi$ will probably be some nonlinear operation on $w$.
 
-
-
-
+\section{Singular Systems and Singular Perturbation}
+A singular system is defined as:
+\begin{equation}
+    E \dot{x} = A x + B u 
+\end{equation}
 
 
 
