@@ -309,6 +309,26 @@ Might be implementation issue.
 \item Is there a limit for the difference? $ \Pi w_g - x$
 \end{itemize}
 
+\section{Singular Systems}
+One thing to note that you could represent singular perturbation systems as a singular system. 
+Scarlotti wrote a paper on singular systems and moment matching, but something different is that for us, 
+our signal is also a singular perturbation system. 
+Another thing to note, when you consider the scenario where $S_{11}$ and $S_{22}$ are 0, the signal is a pure integrator,
+but also when you set $\varepsilon =0$, you have $S_21 w_1 = 0$ which is ambiguous. 
+A reduced model for the sginal is not well defined. 
+So a better approach might be to consider finite $\varepsilon$ and then take the limit as $\varepsilon \to 0$.
+\subsection{New Definition of Moments}
+I think a better definition for the matrix $\Pi$ is to consider it as a linear transformation 
+of the signal $w$, such that the difference between $\Pi w$ and $x$ is governed by the open loop system dynamics. 
+Then, the Sylvester equation becomes a condition that $\Pi$ must satisfy for it to be a valid linear transformation. 
+This allows us to move away from the frequency domain defintion of moments which relies on the system having a steady state response. 
+Even for unstable systems, we can still compute a solution for the Sylvester equation when there is no steady state response. 
+\begin{equation}
+\frac{d}{dt} (x - \Pi w) = A (x - \Pi w)
+\end{equation}
+
+This way a nonlinear extension should be more straightforward, as $\Pi$ will probably be some nonlinear operation on $w$.
+
 
 
 
