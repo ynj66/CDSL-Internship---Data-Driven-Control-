@@ -329,14 +329,175 @@ Even for unstable systems, we can still compute a solution for the Sylvester equ
 
 This way a nonlinear extension should be more straightforward, as $\Pi$ will probably be some nonlinear operation on $w$.
 
-\section{Singular Systems and Singular Perturbation}
-A singular system is defined as:
+\section{Descriptor System Representation}
+Using a decriptor system representation: 
 \begin{equation}
-    E \dot{x} = A x + B u 
+\begin{bmatrix}
+I & 0 \\
+0 & \varepsilon I 
+\end{bmatrix}
+\begin{bmatrix}
+  \dot{x} \\
+  \dot{z}
+\end{bmatrix}
+= 
+\begin{bmatrix}
+A_{11} & A_{12} \\
+A_{21} & A_{22}
+\end{bmatrix}
+\begin{bmatrix}
+  x \\  
+  z
+\end{bmatrix}
++
+\begin{bmatrix}
+B_1 \\
+B_2
+\end{bmatrix} u
+\end{equation}
+
+The signal is similarly: 
+\begin{equation}
+\begin{bmatrix}
+I & 0 \\
+0 & \varepsilon I
+\end{bmatrix}
+\begin{bmatrix}
+  \dot{w}_1 \\
+  \dot{w}_2
+\end{bmatrix}
+=
+\begin{bmatrix}
+S_{11} & S_{12} \\
+S_{21} & S_{22}
+\end{bmatrix}
+\begin{bmatrix}
+  w_1 \\  
+  w_2
+\end{bmatrix}
+\end{equation}
+
+$\Pi$ is then defined as: 
+\begin{equation}
+\begin{bmatrix}
+  I & 0 \\
+  0 & \varepsilon I
+\end{bmatrix}
+\frac{d}{dt}
+\left(
+\begin{bmatrix}
+  x \\
+  z
+\end{bmatrix}
+-
+\begin{bmatrix}
+  \Pi_{x1} & \Pi_{x2} \\
+  \Pi_{z1} & \Pi_{z2}
+\end{bmatrix}
+\begin{bmatrix}
+  w_1 \\
+  w_2
+\end{bmatrix}
+\right)
+=
+\begin{bmatrix} 
+  A_{11} & A_{12} \\
+  A_{21} & A_{22}
+\end{bmatrix}
+\left(
+\begin{bmatrix}
+  x \\
+  z
+\end{bmatrix}
+-
+\begin{bmatrix}
+  \Pi_{x1} & \Pi_{x2} \\
+  \Pi_{z1} & \Pi_{z2}
+\end{bmatrix}
+\begin{bmatrix}
+  w_1 \\
+  w_2
+\end{bmatrix}
+\right)
 \end{equation}
 
 
 
+The resulting Sylvester equation for the whole system then becomes: 
+\begin{equation}
+  A \Pi + B L_g = E \Pi E^{-1} S
+\end{equation}
+
+where
+\begin{equation}
+A = \begin{bmatrix}
+A_{11} & A_{12} \\  
+A_{21} & A_{22}
+\end{bmatrix}, \quad
+B = \begin{bmatrix}
+B_1 \\
+B_2
+\end{bmatrix}, \quad
+E = \begin{bmatrix}
+I & 0 \\
+0 & \varepsilon I
+\end{bmatrix}, \quad
+S = \begin{bmatrix}
+S_{11} & S_{12} \\
+S_{21} & S_{22}
+\end{bmatrix}, \quad
+\Pi = \begin{bmatrix}
+\Pi_{x1} & \Pi_{x2} \\ 
+\Pi_{z1} & \Pi_{z2}
+\end{bmatrix}, \quad
+L_g = \begin{bmatrix}
+L_{g1} & L_{g2}
+\end{bmatrix}
+\end{equation}
+
+Setting $S_{11}$ and $S_{22}$ to 0, we have:
+\begin{equation}
+\begin{bmatrix}
+A_{11} & A_{12} \\
+A_{21} & A_{22}
+\end{bmatrix}
+\begin{bmatrix}
+\Pi_{x1} & \Pi_{x2} \\
+\Pi_{z1} & \Pi_{z2}
+\end{bmatrix}
++
+\begin{bmatrix}
+B_{1} \\
+B_{2}
+\end{bmatrix}
+\begin{bmatrix}
+L_{g1} & L_{g2}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\Pi_{x1} & \frac{1}{\varepsilon}\Pi_{x2} \\
+\varepsilon \Pi_{z1} & \Pi_{z2}
+\end{bmatrix}
+\begin{bmatrix}
+0 & S_{12} \\
+S_{21} & 0
+\end{bmatrix}
+\end{equation}
+
+The resuting 4 equations are then:
+\begin{subequations}
+\begin{align}
+A_{11}\Pi_{x1} + A_{12}\Pi_{z1} + B_1 L_{g1} &= \frac{1}{\varepsilon} \Pi_{x2} S_{21}, \\
+A_{11}\Pi_{x2} + A_{12}\Pi_{z2} + B_1 L_{g2} &= \Pi_{x1} S_{12}, \\
+A_{21}\Pi_{x1} + A_{22}\Pi_{z1} + B_2 L_{g1} &= \varepsilon \Pi_{z1} S_{12} + \Pi_{z2} S_{21}, \\
+A_{21}\Pi_{x2} + A_{22}\Pi_{z2} + B_2 L_{g2} &= \Pi_{z1} S_{12} + \Pi_{z2} S_{22}.
+\end{align}
+\end{subequations}
+
+Using expansion in $\varepsilon$, we can find the where the partitions of $\Pi$ will converge to as $\varepsilon \to 0$.
+When $S_{22}$ is 0, it is singular and the reduced model for the signla is undefined.
+The significance of this representation is that, even when there is no reduced model fot the signal,
+we can still find a meaningful $\Pi$ that relates the system and the signal.
 
 
 
