@@ -425,7 +425,7 @@ $\Pi$ is then defined as:
 
 The resulting Sylvester equation for the whole system then becomes: 
 \begin{equation}
-  A \Pi + B L_g = E \Pi E^{-1} S
+  A \Pi + B L_g = E_1 \Pi E_2^{-1} S
 \end{equation}
 
 where
@@ -489,15 +489,23 @@ The resuting 4 equations are then:
 \begin{align}
 A_{11}\Pi_{x1} + A_{12}\Pi_{z1} + B_1 L_{g1} &= \frac{1}{\varepsilon} \Pi_{x2} S_{21}, \\
 A_{11}\Pi_{x2} + A_{12}\Pi_{z2} + B_1 L_{g2} &= \Pi_{x1} S_{12}, \\
-A_{21}\Pi_{x1} + A_{22}\Pi_{z1} + B_2 L_{g1} &= \varepsilon \Pi_{z1} S_{12} + \Pi_{z2} S_{21}, \\
-A_{21}\Pi_{x2} + A_{22}\Pi_{z2} + B_2 L_{g2} &= \Pi_{z1} S_{12} + \Pi_{z2} S_{22}.
+A_{21}\Pi_{x1} + A_{22}\Pi_{z1} + B_2 L_{g1} &= \Pi_{z2} S_{21}, \\
+A_{21}\Pi_{x2} + A_{22}\Pi_{z2} + B_2 L_{g2} &= \varepsilon \Pi_{z1} S_{12}.
 \end{align}
 \end{subequations}
 
 Using expansion in $\varepsilon$, we can find the where the partitions of $\Pi$ will converge to as $\varepsilon \to 0$.
-When $S_{22}$ is 0, it is singular and the reduced model for the signla is undefined.
+When $S_{22}$ is 0, it is singular and the reduced model for the signal is undefined.
 The significance of this representation is that, even when there is no reduced model fot the signal,
 we can still find a meaningful $\Pi$ that relates the system and the signal.
+
+\subsection{remarks}
+Descriptor systems initial conditions?
+\begin{itemize}
+  \item Defintion of descriptor sylvester equation
+  \item solveability and proof of convergence
+  \item system solution and relation to moment, steady-state
+\end{itemize}
 
 
 
