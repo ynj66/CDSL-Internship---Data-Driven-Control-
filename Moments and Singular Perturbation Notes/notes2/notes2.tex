@@ -1,8 +1,11 @@
 \documentclass{article}
-\usepackage[a4paper, margin=0.5in]{geometry}
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath, amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[a4paper, margin=1.0in]{geometry}
+
 
 \title{Title of the Article}
 \author{Author Name}
@@ -12,20 +15,163 @@
 
 \maketitle
 
-\begin{abstract}
-This is the abstract of the article.
-\end{abstract}
+\section{Linear Systems - Thinking about explicit solutions and moments}
+Consider the following linear time-invariant, SISO system:
+\label{sec:linear-systems}
+\begin{equation}
+\begin{aligned}
+\dot{x} &= A x + B u, \\
+y & = Cx,
+\end{aligned}
+\end{equation}
 
-\section{Introduction}
-Write your introduction here.
+\begin{equation}
+\begin{aligned}
+\dot{w} &= Sw, \\
+u &= Lw,
+\end{aligned}
+\end{equation}
+Given initial conditions \(x(0) = x_0\) and \(w(0) = w_0\), the solution to the system is given by
+\begin{equation}
+x(t) = e^{At} x_0 + \int_0^t e^{A(t-\tau)} B L e^{S\tau} w_0 d\tau.
+\end{equation}
+The output of the system is given by
+\begin{equation}
+y(t) = C e^{At} x_0 + \int_0^t C e^{A(t-\tau)} B L e^{S\tau} w_0 d\tau.
+\end{equation}
+If $\sigma(A) \cup \sigma(S) = \emptyset$, then there exists a unique solution $\Pi$ to the Sylvester equation
+\begin{equation}
+A \Pi + B L = \Pi S.
+\end{equation}
+Using this, we can substitute an expression for \(B L\) into the integral term for $x(t)$:
+\begin{equation}
+\begin{aligned}
+x(t) &= e^{At} x_0 + \int_0^t e^{A(t-\tau)} (\Pi S - A \Pi) e^{S\tau} w_0 d\tau \\
+&= e^{At} x_0 + \int_0^t e^{A(t-\tau)} \Pi S e^{S\tau} w_0 d\tau - \int_0^t e^{A(t-\tau)} A \Pi e^{S\tau} w_0 d\tau \\
+&= e^{At} x_0 + \left( \Pi e^{St} - e^{At} \Pi \right) w_0 .
+\end{aligned}
+\end{equation}
+Forward Moments are defined to be 
+\begin{equation}
+M_g = C \Pi
+\end{equation}
 
-\section{Main Content}
-Write your main content here.
+\section{Problem Setup}
+\label{sec:problem-setup}
+Consider the following linear singularly perturbed system:
+\begin{equation}
+\begin{aligned}
+\dot{x}_1(t) &= A_{11} x_1(t) + A_{12} x_2(t) + B_1 u(t), \\
+\varepsilon \dot{x}_2(t) &= A_{21} x_1(t) + A_{22} x_2(t) + B_2 u(t),
+\end{aligned}
+\end{equation}
+where \(x_1(t) \in \mathbb{R}^{n_1}\), \(x_2(t) \in \mathbb{R}^{n_2}\), \(u(t) \in \mathbb{R}^m\), and \(0 < \epsilon \ll 1\).
 
-\section{Conclusion}
-Write your conclusion here.
+You can write this as a descriptor system: 
+\begin{equation}
+    E_1 \dot{x} = A x + B u
+\end{equation}
+where
+\begin{equation}
+    E_1 = \begin{bmatrix}
+    I_{n_1} & 0 \\
+    0 & \varepsilon I_{n_2}
+    \end{bmatrix}, \quad
+    A = \begin{bmatrix}
+    A_{11} & A_{12} \\
+    A_{21} & A_{22}
+    \end{bmatrix}, \quad
+    B = \begin{bmatrix}
+    B_1 \\
+    B_2
+    \end{bmatrix}, \quad
+    x = \begin{bmatrix}
+    x_1 \\
+    x_2
+    \end{bmatrix}.
+\end{equation}
+The input signal is also a linear singularly perturbed system: 
+\begin{equation}
+\begin{aligned}
+\dot{w_1} = S_{11} w_1 + S_{12}w_2 \\
+\varepsilon \dot{w_2} = S_{21} w_1 + S_{22} w_2
+\end{aligned}
+\end{equation}
+where \(w_1(t) \in \mathbb{R}^{r_1}\), \(w_2(t) \in \mathbb{R}^{r_2}\), and \(0 < \epsilon \ll 1\). 
+The input to the system is given by \(u(t) = L_1 w_1(t) + L_2 w_2(t)\).
+
+The input signal can also be written as a descriptor system like so:
+\begin{equation}
+    E_2 \dot{w} = S w
+\end{equation}
+where
+\begin{equation}
+    E_2 = \begin{bmatrix}
+    I_{r_1} & 0 \\
+    0 & \varepsilon I_{r_2}
+    \end{bmatrix}, \quad
+    S = \begin{bmatrix}
+    S_{11} & S_{12} \\
+    S_{21} & S_{22}
+    \end{bmatrix}, \quad
+    w = \begin{bmatrix}
+    w_1 \\
+    w_2
+    \end{bmatrix}.
+\end{equation}
+The output of the system is given by
+\begin{equation}
+    y(t) = C_1 x_1(t) + C_2 x_2(t).
+\end{equation}
+
+\section{Weierstrass Canonical Form}
+\label{sec:weierstrass-canonical-form}
+For a descriptor system of the form \(E \dot{x} = A x + B u\), the matrix pencil \((A, E)\)
+is said to be regular
+if there exists a complex number \(s\) such that \(\det(sE - A) \neq 0\).
+If the matrix pencil \((A, E)\) is regular, then there exist nonsingular
+matrices \(P\) and \(Q\) such that
+\begin{equation}
+P E Q = \begin{bmatrix}
+I_{n_1} & 0 \\
+0 & N
+\end{bmatrix}, \quad
+P A Q = \begin{bmatrix}
+J & 0 \\
+0 & I_{n_2}
+\end{bmatrix},
+\end{equation}
+where \(J\) is in Jordan canonical form, and \(N\) is a nilpotent matrix. 
+
+So for the singular perturbation system, we have 
+\begin{equation}
+P E_1 Q = \begin{bmatrix}
+I_{n_1} & 0 \\
+0 & N
+\end{bmatrix}, \quad
+P A Q = \begin{bmatrix}
+J_A & 0 \\
+0 & I_{n_2}
+\end{bmatrix},
+\end{equation}
+and
+\begin{equation}
+P E_2 Q = \begin{bmatrix}
+I_{r_1} & 0 \\
+0 & M
+\end{bmatrix}, \quad
+P S Q = \begin{bmatrix}
+J_S & 0 \\
+0 & I_{r_2}
+\end{bmatrix},
+\end{equation}
+where \(J_A\) and \(J_S\) are in Jordan canonical form, and \(N\) and \(M\) are nilpotent matrices.
+
+
 
 \bibliographystyle{plain}
-\bibliography{references}
+\bibliography{referenceses}
+
+
 
 \end{document}

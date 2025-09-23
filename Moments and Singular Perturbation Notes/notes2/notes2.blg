@@ -4,11 +4,11 @@ The top-level auxiliary file: notes2.aux
 Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
-I found no \citation commands---while reading file notes2.aux
 Database file #1: references.bib
+Warning--I didn't find a database entry for "Tren15"
 You've used 0 entries,
             2118 wiz_defined-function locations,
-            497 strings with 3995 characters,
+            499 strings with 4007 characters,
 and the built_in function-call counts, 18 in all, are:
 = -- 0
 > -- 0
@@ -47,4 +47,4 @@ warning$ -- 0
 while$ -- 0
 width$ -- 0
 write$ -- 2
-(There was 1 error message)
+(There was 1 warning)
