@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex notes2"] 1758618269.52704 "notes2.aux" "notes2.bbl" "notes2" 1758618847.32749 0
+["bibtex notes2"] 0 "notes2.aux" "notes2.bbl" "notes2" 1758619328.17853 0
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/plain.bst" 1291864736 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "notes2.aux" 1758618270 881 f655ddc61e60ed3b1edfd017a6700e96 "pdflatex"
+  "notes2.aux" 0 -1 0 "pdflatex"
   "referenceses.bib" 0 -1 0 ""
   (generated)
   "notes2.bbl"
   "notes2.blg"
   (rewritten before read)
-["pdflatex"] 1758618846.05301 "c:/CDSL Internship/CDSL-Internship---Data-Driven-Control-/Moments and Singular Perturbation Notes/notes2/notes2.tex" "notes2.pdf" "notes2" 1758618847.32859 0
+["pdflatex"] 1758619326.93179 "c:/CDSL Internship/CDSL-Internship---Data-Driven-Control-/Moments and Singular Perturbation Notes/notes2/notes2.tex" "notes2.pdf" "notes2" 1758619328.17945 0
   "C:/Users/yoonj/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1758616516 499914 2aa4cbd221617c590c5cdffb1b781261 ""
   "C:/Users/yoonj/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1741959641 24225046 6a90b425369e72b861d8825d3942ddf8 ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -18,6 +18,7 @@
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1233951854 908 2921f8a10601f252058503cc6570e581 ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm5.tfm" 1233951854 940 75ac932a52f80982a9f8ea75d03a34cf ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1233951854 940 228d6584342e91276bf566bcf9716b83 ""
+  "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx10.tfm" 1136765053 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx12.tfm" 1136765053 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmex10.tfm" 1136765053 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi12.tfm" 1136765053 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -30,6 +31,7 @@
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy10.tfm" 1136765053 1124 6c73e740cf17375f03eec0ee63599741 ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy6.tfm" 1136765053 1116 933a60c408fc0a863a92debe84b2d294 ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy8.tfm" 1136765053 1120 8b7d695260f3cff42e636090a8002094 ""
+  "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1247596666 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1247596666 32080 340ef9bf63678554ee606688e7b5339d ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1247596667 30251 6afa5cb1d0204815a708a080681d4674 ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247596667 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
@@ -95,11 +97,11 @@
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/tex/latex/refcount/refcount.sty" 1576433952 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1751104012 9684 a33a14b82ce60d6e77cb9be689d79ee6 ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "c:/CDSL Internship/CDSL-Internship---Data-Driven-Control-/Moments and Singular Perturbation Notes/notes2/notes2.tex" 1758618845 4751 fa17b9809a964938b8dc908715ae5b93 ""
-  "notes2.aux" 1758618846 865 55840703a8bffaca9689e5c4856938a3 "pdflatex"
+  "c:/CDSL Internship/CDSL-Internship---Data-Driven-Control-/Moments and Singular Perturbation Notes/notes2/notes2.tex" 1758619326 5928 06f303b8f094c8bf624ab4e61a20ebbe ""
+  "notes2.aux" 1758619327 865 55840703a8bffaca9689e5c4856938a3 "pdflatex"
   "notes2.bbl" 1758618269 52 0eba253fc001332e731e8aba3f23127b "bibtex notes2"
-  "notes2.out" 1758618846 667 14dbc31c5f13e16c9fbda204f91ead2d "pdflatex"
-  "notes2.tex" 1758618845 4751 fa17b9809a964938b8dc908715ae5b93 ""
+  "notes2.out" 1758619327 667 14dbc31c5f13e16c9fbda204f91ead2d "pdflatex"
+  "notes2.tex" 1758619326 5928 06f303b8f094c8bf624ab4e61a20ebbe ""
   (generated)
   "notes2.aux"
   "notes2.log"

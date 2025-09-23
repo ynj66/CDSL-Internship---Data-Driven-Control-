@@ -7,8 +7,8 @@
 \usepackage[a4paper, margin=1.0in]{geometry}
 
 
-\title{Title of the Article}
-\author{Author Name}
+\title{Singular Perturbations, Moments and Descriptor Systems: Linear}
+\author{Yoonjae Hwang}
 \date{\today}
 
 \begin{document}
@@ -143,7 +143,7 @@ J & 0 \\
 \end{equation}
 where \(J\) is in Jordan canonical form, and \(N\) is a nilpotent matrix. 
 
-So for the singular perturbation system, we have 
+Let's assume $(A, E_1)$ and $(S, E_2)$ are regular. So for the singular perturbation system, we have 
 \begin{equation}
 P E_1 Q = \begin{bmatrix}
 I_{n_1} & 0 \\
@@ -156,16 +156,54 @@ J_A & 0 \\
 \end{equation}
 and
 \begin{equation}
-P E_2 Q = \begin{bmatrix}
+W E_2 T = \begin{bmatrix}
 I_{r_1} & 0 \\
 0 & M
 \end{bmatrix}, \quad
-P S Q = \begin{bmatrix}
+W S T = \begin{bmatrix}
 J_S & 0 \\
 0 & I_{r_2}
 \end{bmatrix},
 \end{equation}
-where \(J_A\) and \(J_S\) are in Jordan canonical form, and \(N\) and \(M\) are nilpotent matrices.
+where \(J_A\) and \(J_S\) are in Jordan canonical form, and \(N\) and \(M\) are nilpotent matrices. 
+\newline
+\textbf{Question}: Can we find P and Q for this? How does this relate to $A_{22}$ beign Hurwitz?
+
+We can rewrite the system with a coordinate transformation \(x = Q \tilde{x}\) and \(w = T \tilde{w}\), 
+with $\tilde{x} = \begin{bmatrix}\tilde{x}_1 \\ \tilde{x}_2 \end{bmatrix}$ and
+$\tilde{w} = \begin{bmatrix}\tilde{w}_1 \\ \tilde{w}_2 \end{bmatrix}$:
+\begin{equation}
+\begin{aligned}
+\begin{bmatrix}
+I_{n_1} & 0 \\
+0 & N
+\end{bmatrix} \begin{bmatrix}
+\dot{\tilde{x}}_1(t) \\
+\dot{\tilde{x}}_2(t)
+\end{bmatrix} &= \begin{bmatrix}
+J_A & 0 \\
+0 & I_{n_2}
+\end{bmatrix} \begin{bmatrix}
+\tilde{x}_1(t) \\
+\tilde{x}_2(t)
+\end{bmatrix} + \tilde{B} (L_1 \tilde{w}_1(t) + L_2 \tilde{w}_2(t)), \\
+\begin{bmatrix}
+I_{r_1} & 0 \\
+0 & M
+\end{bmatrix} \begin{bmatrix}
+\dot{\tilde{w}}_1(t) \\
+\dot{\tilde{w}}_2(t)
+\end{bmatrix} &= \begin{bmatrix}
+J_S & 0 \\
+0 & I_{r_2}
+\end{bmatrix} \begin{bmatrix}
+\tilde{w}_1(t) \\
+\tilde{w}_2(t)
+\end{bmatrix}, \\
+y(t) &= \tilde{C}_1 \tilde{x}_1(t) + \tilde{C}_2 \tilde{x}_2(t),
+\end{aligned}
+\end{equation}
+
 
 
 
