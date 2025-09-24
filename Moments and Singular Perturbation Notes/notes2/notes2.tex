@@ -165,7 +165,8 @@ J_S & 0 \\
 0 & I_{r_2}
 \end{bmatrix},
 \end{equation}
-where \(J_A\) and \(J_S\) are in Jordan canonical form, and \(N\) and \(M\) are nilpotent matrices. 
+where \(J_A\) and \(J_S\) are in Jordan canonical form, and \(N^\nu = 0\) and \(M^\mu = 0\) are nilpotent matrices. 
+$\nu$ is the index of $\lambda E_1 - A$, and $\mu$ is the index of $\lambda E_2 - S$
 \newline
 \textbf{Question}: Can we find P and Q for this? How does this relate to $A_{22}$ beign Hurwitz?
 
@@ -204,6 +205,44 @@ y(t) &= \tilde{C}_1 \tilde{x}_1(t) + \tilde{C}_2 \tilde{x}_2(t),
 \end{aligned}
 \end{equation}
 
+\textbf{Question}: When we set epsilon to 0, are the pencils no longer regular?
+\newline
+Moments obtained from these systems, then take epsilon to 0 and find convert back to original
+should give the same Pi. 
+Might not be necessary to prove this bit. 
+But if we say they are regular, then we can apply the initial value conditions for existence of solutions.
+\newline 
+Consistent initial values $\implies$ Error is 0 for all t
+\newline
+Incosistent initial values $\implies$ Neighbourhood around boundary layer?
+
+\section{Back to Finite Epsilon}
+For finite epsilon, $E_2$ is no longer singular. 
+The overall Sylvester equation then becomes: 
+\begin{equation}
+    A \Pi + B L = E_1 \Pi E_2^{-1} S
+\end{equation}
+The main idea is that although $\lim_{\varepsilon \to 0} E_2^{-1}$ is undefined, 
+$\lim_{\varepsilon \to 0} E_1 \Pi E_2^{-1}$ is defined. 
+\subsection{Explicit Solution for Finite Epsilon}
+For finite $\epsilon$, we can the write the explicit solution for (9) and (10) as such:
+\begin{equation}
+    w(t) = \exp({E_2^{-1} S t}) w_0
+\end{equation}
+\begin{equation}
+    x(t) = \exp({E_1^{-1} A t}) x_0 + \left( \Pi \exp({E_2^{-1} S t}) - \Pi \exp({E_1^{-1} At}) \Pi \right) w_0
+\end{equation}
+
+\subsection{Boundary Layer Model}
+When we set epsilon to zero, the resulting boundary layer model will be: 
+\begin{equation}
+    \dot{w}_1 = (S_{11} - S_{12} S_{22}^{-1} S_{21}) w_1
+\end{equation}
+
+\begin{equation}
+    \dot{x}_1 = (A_{11}-A_{12} A_{22} ^{-1} A_{21}) x_1 + (B_1 - A_{12} A_{22}^{-1} B_2) (L_{1} - L_{2} S_{22} ^ {-1} S_{21}) w_1
+\end{equation}
+Corresponding $\Pi$ for (23) is $\Pi_{11}^{(0)}$ as we can show. 
 
 
 
