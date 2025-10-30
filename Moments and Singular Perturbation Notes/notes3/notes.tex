@@ -1,0 +1,238 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[a4paper, margin=1.0in]{geometry}
+
+
+\title{Singular Perturbations, Moments and Descriptor Systems: Linear}
+\author{Yoonjae Hwang}
+\date{30 October 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Linear Systems - Thinking about explicit solutions and moments}
+Consider the following linear time-invariant, SISO system:
+\label{sec:linear-systems}
+\begin{equation}
+\begin{aligned}
+\dot{x} &= A x + B u, \\
+y & = Cx,
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+\dot{w} &= Sw, \\
+u &= Lw,
+\end{aligned}
+\end{equation}
+Given initial conditions \(x(0) = x_0\) and \(w(0) = w_0\), the solution to the system is given by
+\begin{equation}
+x(t) = e^{At} x_0 + \int_0^t e^{A(t-\tau)} B L e^{S\tau} w_0 d\tau.
+\end{equation}
+The output of the system is given by
+\begin{equation}
+y(t) = C e^{At} x_0 + \int_0^t C e^{A(t-\tau)} B L e^{S\tau} w_0 d\tau.
+\end{equation}
+If $\sigma(A) \cup \sigma(S) = \emptyset$, then there exists a unique solution $\Pi$ to the Sylvester equation
+\begin{equation}
+A \Pi + B L = \Pi S.
+\end{equation}
+Using this, we can substitute an expression for \(B L\) into the integral term for $x(t)$:
+\begin{equation}
+\begin{aligned}
+x(t) &= e^{At} x_0 + \int_0^t e^{A(t-\tau)} (\Pi S - A \Pi) e^{S\tau} w_0 d\tau \\
+&= e^{At} x_0 + \int_0^t e^{A(t-\tau)} \Pi S e^{S\tau} w_0 d\tau - \int_0^t e^{A(t-\tau)} A \Pi e^{S\tau} w_0 d\tau \\
+&= e^{At} x_0 + \left( \Pi e^{St} - e^{At} \Pi \right) w_0 .
+\end{aligned}
+\end{equation}
+Forward Moments are defined to be 
+\begin{equation}
+M_g = C \Pi
+\end{equation}
+
+
+\section{Problem Setup}
+\label{sec:problem-setup}
+Consider the following linear singularly perturbed system:
+\begin{equation}
+\begin{aligned}
+\dot{x}_1(t) &= A_{11} x_1(t) + A_{12} x_2(t) + B_1 u(t), \\
+\varepsilon \dot{x}_2(t) &= A_{21} x_1(t) + A_{22} x_2(t) + B_2 u(t),
+\end{aligned}
+\end{equation}
+where \(x_1(t) \in \mathbb{R}^{n_1}\), \(x_2(t) \in \mathbb{R}^{n_2}\), \(u(t) \in \mathbb{R}^m\), and \(0 < \epsilon \ll 1\).
+
+You can write this as a descriptor system: 
+\begin{equation}
+    E_1 \dot{x} = A x + B u
+\end{equation}
+where
+\begin{equation}
+    E_1 = \begin{bmatrix}
+    I_{n_1} & 0 \\
+    0 & \varepsilon I_{n_2}
+    \end{bmatrix}, \quad
+    A = \begin{bmatrix}
+    A_{11} & A_{12} \\
+    A_{21} & A_{22}
+    \end{bmatrix}, \quad
+    B = \begin{bmatrix}
+    B_1 \\
+    B_2
+    \end{bmatrix}, \quad
+    x = \begin{bmatrix}
+    x_1 \\
+    x_2
+    \end{bmatrix}.
+\end{equation}
+The input signal is also a linear singularly perturbed system: 
+\begin{equation}
+\begin{aligned}
+\dot{w_1} = S_{11} w_1 + S_{12}w_2 \\
+\varepsilon \dot{w_2} = S_{21} w_1 + S_{22} w_2
+\end{aligned}
+\end{equation}
+where \(w_1(t) \in \mathbb{R}^{r_1}\), \(w_2(t) \in \mathbb{R}^{r_2}\), and \(0 < \epsilon \ll 1\). 
+The input to the system is given by \(u(t) = L_1 w_1(t) + L_2 w_2(t)\).
+
+The input signal can also be written as a descriptor system like so:
+\begin{equation}
+    E_2 \dot{w} = S w
+\end{equation}
+where
+\begin{equation}
+    E_2 = \begin{bmatrix}
+    I_{r_1} & 0 \\
+    0 & \varepsilon I_{r_2}
+    \end{bmatrix}, \quad
+    S = \begin{bmatrix}
+    S_{11} & S_{12} \\
+    S_{21} & S_{22}
+    \end{bmatrix}, \quad
+    w = \begin{bmatrix}
+    w_1 \\
+    w_2
+    \end{bmatrix}.
+\end{equation}
+The output of the system is given by
+\begin{equation}
+    y(t) = C_1 x_1(t) + C_2 x_2(t).
+\end{equation}
+
+\section{Wong Sequences}
+Stuff on Wong Sequences
+
+\section{Wong Sequences: Regular}
+We now assume that the pencils $(E_1, A)$ and $(E_2, S)$ are regular. 
+Then as shown in the summary by Stephan Trenn, Theorem 2.12: 
+\begin{equation}
+    P(sE_1-A)Q = s
+    \begin{bmatrix}
+        I & 0 \\
+        0 & N_1
+    \end{bmatrix}
+    -
+    \begin{bmatrix}
+        J_1 & 0 \\ 
+        0 & I
+    \end{bmatrix}.
+\end{equation}
+
+\begin{equation}
+    W(sE_2-S)T = s
+    \begin{bmatrix}
+        I & 0 \\
+        0 & N_2
+    \end{bmatrix}
+    -
+    \begin{bmatrix}
+        J_2 & 0 \\ 
+        0 & I
+    \end{bmatrix}.
+\end{equation}
+
+The following quantities can then be defined for both the system and the signal.
+\newline
+The index for system is 1, and signal quantities have index 2. 
+\newline
+The consistency projector is: 
+\begin{equation}
+    \Xi_1 = Q
+    \begin{bmatrix}
+        I & 0 \\
+        0 & 0
+    \end{bmatrix}
+    Q^{-1}
+\end{equation}
+
+The differential projector:
+\begin{equation}
+    \Theta_1 = Q
+    \begin{bmatrix}
+        I & 0 \\
+        0 & 0
+    \end{bmatrix}
+    P
+\end{equation}
+
+The consistency projector:
+\begin{equation}
+    \Phi_1 = Q
+    \begin{bmatrix}
+        0 & 0 \\
+        0 & I
+    \end{bmatrix}
+    P
+\end{equation}
+
+Furthermore: 
+\begin{equation}
+    \tilde{A} := \Theta_1 A
+\end{equation}
+
+\begin{equation}
+    \hat{E} := \Phi_1 E_1
+\end{equation}
+
+There are some conditions on (P,Q) related to the Wong sequences. 
+The explicit solution can then be found as the following: 
+Solution for the signal: 
+\begin{equation}
+    w(t) = e^{\tilde{S} t} \Xi_2 c_2
+\end{equation}
+The input is then given by: 
+\begin{equation}
+    f(t) = BLw(t) = BL e^{\tilde{S} t} \Xi_2 c_2
+\end{equation}
+\begin{equation}
+    x(t) = e^{\tilde{A} t} \Xi_1 c + \int_{0}^{t} e^{\tilde{A} (t-\tau)} \Xi_1 BL e^{\tilde{S} \tau} \Xi_2 c_2 d \tau - \sum_{i=0}^{n-1} \hat{E}^i \Phi_1 \left(BL e^{\tilde{S} t} \Xi_2 c_2 \right)^{(i)}
+\end{equation}
+
+There are some conditions on $c_1, c_2$ relating the initial conditions. 
+
+We now investigate the integral: 
+\begin{equation}
+    \int_{0}^{t} e^{\tilde{A} (t-\tau)} \Xi_1 BL e^{\tilde{S} \tau} \Xi_2 c_2 d \tau = e^{\tilde{A}t} \left( \int_{0}^{t} e^{-\tilde{A}\tau} \Xi_1 BL e^{\tilde{S} \tau} d \tau \right) \Xi_2 c_2
+\end{equation}
+
+If $\sigma(\tilde{A}) \cup \sigma{\tilde{S}} = \emptyset$:
+\begin{equation}
+    \tilde{A} \Pi + \Xi_1 BL = \Pi \tilde{S}
+\end{equation}
+
+Then the integral evaluates to:
+\begin{equation}
+    \int_{0}^{t} e^{\tilde{A} (t-\tau)} \Xi_1 BL e^{\tilde{S} \tau} \Xi_2 c_2 d \tau = \left( \Pi e^{\tilde{S} t} - e^{\tilde{A} t} \Pi \right) \Xi_2 c_2
+\end{equation}
+
+
+This is analagous to the result shown in section 1. 
+
+
+\end{document} 
