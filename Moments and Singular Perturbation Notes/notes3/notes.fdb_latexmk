@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1761806199.62061 "c:/CDSL Internship/CDSL-Internship---Data-Driven-Control-/Moments and Singular Perturbation Notes/notes3/notes.tex" "notes.pdf" "notes" 1761806200.34398 0
+["pdflatex"] 1761806254.20372 "c:/CDSL Internship/CDSL-Internship---Data-Driven-Control-/Moments and Singular Perturbation Notes/notes3/notes.tex" "notes.pdf" "notes" 1761806254.87898 0
   "C:/Users/yoonj/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1761405152 501689 2e496fd7df2655628e09b4dd962764bf ""
   "C:/Users/yoonj/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1741959641 24225046 6a90b425369e72b861d8825d3942ddf8 ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -87,10 +87,10 @@
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/tex/latex/refcount/refcount.sty" 1576433952 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1751104012 9684 a33a14b82ce60d6e77cb9be689d79ee6 ""
   "C:/Users/yoonj/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "c:/CDSL Internship/CDSL-Internship---Data-Driven-Control-/Moments and Singular Perturbation Notes/notes3/notes.tex" 1761806199 6417 2f602a16eb3a67a002c41a74a01e494b ""
-  "notes.aux" 1761806200 842 3fe2d3ff510e5457cf8c1b24e8e5d288 "pdflatex"
-  "notes.out" 1761806200 768 7fbfc0201bd1840999ad99e24323b3cf "pdflatex"
-  "notes.tex" 1761806199 6417 2f602a16eb3a67a002c41a74a01e494b ""
+  "c:/CDSL Internship/CDSL-Internship---Data-Driven-Control-/Moments and Singular Perturbation Notes/notes3/notes.tex" 1761806253 6450 d3d41d75523a14616ab579f7089b5eb5 ""
+  "notes.aux" 1761806254 842 3fe2d3ff510e5457cf8c1b24e8e5d288 "pdflatex"
+  "notes.out" 1761806254 768 7fbfc0201bd1840999ad99e24323b3cf "pdflatex"
+  "notes.tex" 1761806253 6450 d3d41d75523a14616ab579f7089b5eb5 ""
   (generated)
   "notes.aux"
   "notes.log"
