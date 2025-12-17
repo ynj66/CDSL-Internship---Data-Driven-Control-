@@ -126,7 +126,14 @@ The output of the system is given by
 \end{equation}
 
 \section{Wong Sequences}
-Stuff on Wong Sequences
+We define the Wong Sequences such: 
+\begin{equation}
+    \mathcal{V}_0 = \mathbb{R}^n \qquad \mathcal{V}_{i+1} = A^{-1} (E \mathcal{V}_i) \qquad \mathcal{V}^* = \bigcap_{i=0}^n \mathcal{V}_i
+\end{equation}
+
+\begin{equation}
+    \mathcal{W}_0 = \{0 \} \qquad \mathcal{W}_{i+1} = E^{-1} (A \mathcal{W}_i) \qquad \mathcal{W}^* = \bigcup_{i=0}^n \mathcal{W}_i
+\end{equation}
 
 \section{Wong Sequences: Regular}
 We now assume that the pencils $(E_1, A)$ and $(E_2, S)$ are regular. 
@@ -171,7 +178,7 @@ The consistency projector is:
     Q^{-1}
 \end{equation}
 
-The differential projector:
+The differential selector:
 \begin{equation}
     \Theta_1 = Q
     \begin{bmatrix}
@@ -181,7 +188,7 @@ The differential projector:
     P
 \end{equation}
 
-The consistency projector:
+The impulse selector:
 \begin{equation}
     \Phi_1 = Q
     \begin{bmatrix}
@@ -235,6 +242,206 @@ Then the integral evaluates to:
 
 
 This is analagous to the result shown in section 1. 
+\newline
+The Sylvester Equation features $\tilde{A} = \Theta_1 A$, $\tilde{S} = \Theta_1 S$.
+$\Theta_i$ takes the upper left partition of $A$ and $S$. 
+Does this correspond to $\left( A_{11}, S_{11}, \Pi_{11} \right) $. 
 
+\section{Concatenated System}
+For a regular linear system, we can stack the input signal state $w(t)$ and the system state $x(t)$ to create the following autnomous system:
+\begin{equation}
+    \begin{bmatrix}
+        \dot{x}(t) \\
+        \dot{w}(t)
+    \end{bmatrix}
+    = 
+    \begin{bmatrix}
+        A & BL \\ 
+        0 & S 
+    \end{bmatrix}
+    \begin{bmatrix}
+        x(t) \\ 
+        w(t)
+    \end{bmatrix}
+\end{equation}. 
 
+The explicit solution to this system would then be: 
+\begin{equation}
+    \begin{bmatrix}
+        x(t) \\
+        w(t)
+    \end{bmatrix}
+    = 
+    \exp{\left(
+    \begin{bmatrix}
+        A & BL \\ 
+        0 & S
+    \end{bmatrix}t
+    \right)}
+    \begin{bmatrix}
+        x(0) \\ 
+        w(0)
+    \end{bmatrix}
+\end{equation}
+
+Considering the matrix exponential term we have: 
+\begin{equation}
+    \exp{\left(     
+    \begin{bmatrix}
+        A & BL \\ 
+        0 & S
+    \end{bmatrix}t
+    \right)}
+    =
+    \begin{bmatrix}
+        e^{At} & \Pi e^{St} - e^{At} \Pi \\
+        0 & e^{St}
+    \end{bmatrix}
+\end{equation}
+
+For our descriptor system we then have:
+\begin{equation}
+    \begin{bmatrix}
+        E_1 & 0 \\
+        0 & E_2 
+    \end{bmatrix}
+    \begin{bmatrix}
+        \dot{x}(t) \\
+        \dot{w}(t)
+    \end{bmatrix}
+    = 
+    \begin{bmatrix}
+        A & BL \\
+        0 & S
+    \end{bmatrix}
+    \begin{bmatrix}
+        x(t) \\
+        w(t)
+    \end{bmatrix}
+\end{equation}
+Now we reformulate our problem into an analysis of an autonomous descriptor system, namely: 
+\begin{equation}
+    \mathcal{E} \dot{\mathbf{X}}(t) = \mathcal{A} \mathbf{X}(t)
+\end{equation}
+This should(?) be regular also if $(E_1, A)$ and $(E_2, S)$ is regular.
+We can find the corresponding quantities, specifically the differential selector for the 
+system defined by $(\mathcal{E}, \mathcal{A})$. 
+By the Stephan Trenn paper we can think of (34) as: 
+\begin{equation}
+\dot{\mathbf{X}}(t) = \Theta \mathcal{A} \mathbf{X}(t)
+\end{equation}
+
+Then it's a matter of comparing $\Theta \mathcal{A}$ and 
+$\begin{bmatrix}
+    A & BL \\
+    0 & S
+\end{bmatrix}$.
+
+So to compare it it would require: computing the wong sequences and finding what $\Theta$ will be. 
+Then it's a matter of comparing the two matrices, and exploring how it relates to the $\Pi$ quantity in (5). 
+
+How to compute it? 
+
+By the structure of $\Theta$, what terms survive?
+\begin{equation}
+    \Theta 
+    =
+    \begin{bmatrix}
+        \Theta_{11} & * \\
+        0 & \Theta_{22}
+    \end{bmatrix}
+\end{equation}
+Corresponding $\Theta$ to $x(t)$ and $w(t)$, and the $*$ term representing the coupling between them. 
+
+Relation to 
+$\begin{bmatrix}
+    \Pi_{11} & \Pi_{12} \\
+    \Pi_{21} & \Pi_{22} 
+\end{bmatrix}
+$?
+
+\section{Relation to Scarciotti Paper}
+Suppose the pencil $(S, E_2)$ is regular. 
+Then we can write the signal generator as the following: 
+\begin{equation}
+    \dot{w} = \Theta_2 S w
+\end{equation}
+
+Then, we can write the system as:
+\begin{equation}
+    \begin{aligned}
+        E_1 \dot{x} &= A x + B u \\
+        \dot{w} &= \Theta_2 S w \\
+        y &= Cx \\
+        u &= Lw
+    \end{aligned}
+\end{equation}
+
+So, we can write the corresponding analagous Sylvester Equation: 
+\begin{equation}
+    A \Pi + B L = E_1 \Pi \Theta_2 S
+\end{equation}
+
+and your forward moment becomes: 
+\begin{equation}
+    M_g = C \Pi
+\end{equation}
+
+From here, the results follow from Scarciotti's paper. 
+
+\subsection{When \texorpdfstring{$S_{11} = S_{22} = 0$}{S11 = S22 = 0}}
+The pencil $(E_2, S)$ will be regular in this case when: 
+\begin{equation}
+    \det( \lambda E_2 - S) \neq 0
+\end{equation}
+for some $\lambda$. Ie:
+\begin{equation}
+    \det \left(
+    \begin{bmatrix}
+        \lambda I & -S_{12} \\
+        -S_{21} & 0
+    \end{bmatrix}
+    \right)
+    \neq
+    0
+\end{equation}
+
+Using Schur's Complement formula: 
+\begin{equation}
+\begin{aligned}
+    \det 
+    \begin{bmatrix}
+        \lambda I & -S_{12} \\
+        -S_{21} & 0
+    \end{bmatrix}
+    &= \det(\lambda I) \det(0 - (-S_{21}) (\lambda I)^{-1} (-S_{12})) \\
+    &= \lambda ^ n \det( - \frac{1}{\lambda} S_{21} S_{12}) \\
+\end{aligned}
+\end{equation}
+
+Thus, regularity requires $S_{21} S_{12}$ to be invertible, and both n x n matrices. 
+Which means both $S_{12}, S_{21}$ need to be invertible. 
+
+This means that the system: 
+\begin{equation}
+    \begin{bmatrix}
+        \dot{w}_1 \\
+        0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        0 & S_{12} \\
+        S_{21} & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+        w_1 \\
+        w_2
+    \end{bmatrix}
+\end{equation}
+
+will have no dynamics. 
+\begin{equation}
+    0 = S_{21} w_1 \implies w_1(t) = 0 \implies w_2 (t) = 0
+\end{equation}
+This is all when considering the explicit case $\varepsilon = 0$.
 \end{document} 
